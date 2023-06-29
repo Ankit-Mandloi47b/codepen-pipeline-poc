@@ -1,0 +1,14 @@
+version: '3'
+services:
+  CP-minio:
+    container_name: CP-minio
+    image: minio/minio:latest
+    volumes:
+      - ./Vol-Minio:/data
+    environment:
+      MINIO_ACCESS_KEY: minioadmin
+      MINIO_SECRET_KEY: minioadmin
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    command: server /data --console-address ":9001"
